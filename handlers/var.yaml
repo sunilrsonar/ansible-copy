@@ -1,0 +1,15 @@
+---
+- name: Variables Example
+  hosts: all
+  become: yes
+  remote_user: ansible
+  roles:
+    - custom-role
+  
+  vars:
+    main: "This is main variable"
+
+  tasks:
+    - name: Print main variable
+      debug:
+        var: main

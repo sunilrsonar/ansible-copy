@@ -1,0 +1,19 @@
+---
+- name: Install nginx and update cache 
+  apt: 
+    name: nginx 
+    state: latest
+    update_cache: yes
+
+- name: index.html copy 
+  template: src=index.html dest=/usr/share/nginx/html/index.html
+
+
+##updated the index.html
+
+- name: copy updated.html
+  copy: 
+    src: updated.html
+    dest: /usr/share/nginx/html/index.html
+  notify:
+    - restart nginx

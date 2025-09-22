@@ -1,0 +1,13 @@
+---
+- name: Handlers for nginx 
+  hosts: ubuntu1
+  become: true
+  remote_user: ansible
+  roles:
+    - handlers
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted

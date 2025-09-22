@@ -1,0 +1,13 @@
+- name: Install common tools
+  hosts: env_dev
+  become: yes
+  tasks:
+    - name: Install common packages
+      apt:
+        name:
+          - git
+          - curl
+          - unzip
+          - htop
+        state: present
+        update_cache: yes

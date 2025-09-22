@@ -1,0 +1,15 @@
+---
+- name: copy a file
+  hosts: ubuntu
+  become: yes
+  tasks:
+    - name: copy a file
+      copy:
+        src: /home/ansible/file.txt
+        dest: /home/ansible/file.txt
+        mode: "0777"
+        owner: root
+        group: root
+    - name: update
+      apt:
+        update_cache: yes                         

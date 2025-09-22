@@ -1,0 +1,17 @@
+- name: Install nginx web server
+  hosts: env_dev
+  become: yes
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+    - name: start nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+
+#ansible-playbook -i inventory nginx.yaml -l env_dev
